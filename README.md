@@ -1,1 +1,1 @@
-# Pygames Mintaprogram
+# 2. Fejezet, Pygames Mintaprogram
