@@ -2,14 +2,15 @@
 import pygame
 
 WIDTH, HEIGHT = 1500, 900
-BG_COLOR = (140, 137, 246)
+BG_COLOR = (255, 255, 255)
 BIRD_SPEED = 5
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-bird_surf = pygame.image.load("dvd.png").convert_alpha()
+bird_surf2=pygame.image.load("dvd.png")
+bird_surf = pygame.transform.scale(bird_surf2, (150,80)).convert_alpha()
 bird_rect = bird_surf.get_rect(midleft=(0, HEIGHT / 2))
 running = True
 while running:
