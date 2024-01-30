@@ -1,6 +1,5 @@
 # FONTOS amíg még hátra vannak ebből a programból:
 # - mozgó animáció menjen, ezért lecserélni valamire a dvd logót
-# - ha neki ütközik a falnak random legyen az elmozdulása(most még kirepül)
 # - szebb háttér választása
 # - idő számláló kíiratása ami nullázódik ha hozzáér a sarokhoz
 
