@@ -2,8 +2,6 @@
 # - mozgó animáció menjen, ezért lecserélni valamire a dvd logót
 # - szebb háttér választása
 # - idő számláló kíiratása ami nullázódik ha hozzáér a sarokhoz
-
-
 import pygame
 
 pygame.init()
@@ -18,13 +16,25 @@ screen = pygame.display.set_mode(screen_res)
 clock = pygame.time.Clock()
 # színek
 piros = (255, 0, 0)
-fehér = (255, 255, 255)
+fekete = (0, 0, 0)
 
-# labda
+# (PRÓBA) labda
 # labda = pygame.draw.circle(surface=screen, color=piros, center=[100, 100], radius=40)
-dvdkép = pygame.image.load("dvd.png")
-dvd = pygame.transform.scale(dvdkép, (150, 80)).convert_alpha()
-dvd_rect = dvd.get_rect(midleft=(150, 80))
+
+#dvd kép animáció összerakása
+dvdkép1 = pygame.image.load("dvd.png")
+dvdkép2= pygame.image.load("dvd2.png")
+dvdkép3= pygame.image.load("dvd3.png")
+dvdkép4= pygame.image.load("dvd4.png")
+dvd1 = pygame.transform.scale(dvdkép1, (150, 120)).convert_alpha()
+dvd2 = pygame.transform.scale(dvdkép2, (150, 120)).convert_alpha()
+dvd3 = pygame.transform.scale(dvdkép3, (150, 120)).convert_alpha()
+dvd4 = pygame.transform.scale(dvdkép4, (150, 120)).convert_alpha()
+dvd=[dvd1,dvd2,dvd3,dvd4]
+dvd_index=0
+dvd_rect = dvd[dvd_index].get_rect(midleft=(150, 80))
+
+# számláló=0
 # milyen gyors
 # gyorsaság = [X tengelyen, Y tengelyen]
 gyorsaság = [5.3, 6.2]
@@ -37,7 +47,12 @@ while True:
             exit()
 
     # háttér kitoltése
-    screen.fill(fehér)
+    screen.fill(fekete)
+    #dvd animáció
+    # számláló+=1
+    # if számláló%15==0:
+    #     dvd_index+=1
+    
     # dvd mozog
     dvd_rect = dvd_rect.move(gyorsaság)
     # mostmár a dvd közepe (101,101)
@@ -45,9 +60,15 @@ while True:
     # ha a dvd kimely a képből jöjjön vissza
     if dvd_rect.left <= 0 or dvd_rect.right >= width:
         gyorsaság[0] = -gyorsaság[0]
+        dvd_index+=1
     if dvd_rect.top <= 0 or dvd_rect.bottom >= height:
         gyorsaság[1] = -gyorsaság[1]
-    screen.blit(dvd, dvd_rect)
+        dvd_index+=1
+
+    if dvd_index>len(dvd)-1:
+        dvd_index=0
+    
+    screen.blit(dvd[dvd_index], dvd_rect)
     # frissiteni a képernyőt
     pygame.display.update()
     clock.tick(60)
