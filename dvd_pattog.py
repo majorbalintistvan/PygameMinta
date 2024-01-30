@@ -1,14 +1,13 @@
 # FONTOS amíg még hátra vannak ebből a programból:
-# - mozgó animáció menjen, ezért lecserélni valamire a dvd logót
-# - szebb háttér választása
+# - Lecserélni valamire a dvd logót(ha akarjuk)
 # - idő számláló kíiratása ami nullázódik ha hozzáér a sarokhoz
 import pygame
 
 pygame.init()
 # képernyő hossza
-width = 1200
+width = 1600
 # képernyő magassága
-height = 1000
+height = 1080
 screen_res = (width, height)
 
 pygame.display.set_caption("Pattogó dvd")
@@ -26,15 +25,13 @@ dvdkép1 = pygame.image.load("dvd.png")
 dvdkép2= pygame.image.load("dvd2.png")
 dvdkép3= pygame.image.load("dvd3.png")
 dvdkép4= pygame.image.load("dvd4.png")
-dvd1 = pygame.transform.scale(dvdkép1, (150, 120)).convert_alpha()
-dvd2 = pygame.transform.scale(dvdkép2, (150, 120)).convert_alpha()
-dvd3 = pygame.transform.scale(dvdkép3, (150, 120)).convert_alpha()
-dvd4 = pygame.transform.scale(dvdkép4, (150, 120)).convert_alpha()
+dvd1 = pygame.transform.scale(dvdkép1, (240, 160)).convert_alpha()
+dvd2 = pygame.transform.scale(dvdkép2, (240, 160)).convert_alpha()
+dvd3 = pygame.transform.scale(dvdkép3, (240, 160)).convert_alpha()
+dvd4 = pygame.transform.scale(dvdkép4, (240, 160)).convert_alpha()
 dvd=[dvd1,dvd2,dvd3,dvd4]
 dvd_index=0
-dvd_rect = dvd[dvd_index].get_rect(midleft=(150, 80))
-
-# számláló=0
+dvd_rect = dvd[dvd_index].get_rect(midleft=(240, 160))
 # milyen gyors
 # gyorsaság = [X tengelyen, Y tengelyen]
 gyorsaság = [5.3, 6.2]
@@ -49,10 +46,6 @@ while True:
     # háttér kitoltése
     screen.fill(fekete)
     #dvd animáció
-    # számláló+=1
-    # if számláló%15==0:
-    #     dvd_index+=1
-    
     # dvd mozog
     dvd_rect = dvd_rect.move(gyorsaság)
     # mostmár a dvd közepe (101,101)
