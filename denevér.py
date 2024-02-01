@@ -73,9 +73,9 @@ while True:
         gyorsaság[1] = -gyorsaság[1]
         score += 1
 
+    screen.blit(bat[bat_index], bat_rect)
     screen.blit(time_surf, time_rect)
     screen.blit(score_surf, score_rect)
-    screen.blit(bat[bat_index], bat_rect)
     # frissiteni a képernyőt
     pygame.display.update()
     clock.tick(60)
