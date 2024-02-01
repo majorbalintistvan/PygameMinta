@@ -5,7 +5,7 @@ pygame.init()
 # képernyő hossza
 width = 1600
 # képernyő magassága
-height = 1080
+height = 860
 screen_res = (width, height)
 
 pygame.display.set_caption("Repülő denevér")
@@ -31,7 +31,7 @@ bat5 = pygame.image.load("denevér3.png").convert_alpha()
 bat6 = pygame.image.load("denevér2.png").convert_alpha()
 bat = [bat1, bat2, bat3, bat4, bat5, bat6]
 bat_index = 0
-bat_rect = bat[bat_index].get_rect(midleft=(240, 160))
+bat_rect = bat[bat_index].get_rect(midleft=(200, 140))
 számláló = 0
 # milyen gyors
 # gyorsaság = [X tengelyen, Y tengelyen]
@@ -57,7 +57,7 @@ while True:
     screen.blit(Háttér,(0,0))
     # bat animáció
     számláló += 1
-    if számláló % 5 == 0:
+    if számláló % 4 == 0:
         bat_index += 1
     if bat_index > len(bat) - 1:
         bat_index = 0
