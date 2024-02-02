@@ -3,7 +3,7 @@ import time
 
 pygame.init()
 # képernyő hossza
-width = 1600
+width = 1200
 # képernyő magassága
 height = 860
 screen_res = (width, height)
@@ -57,7 +57,7 @@ while True:
     screen.blit(Háttér,(0,0))
     # bat animáció
     számláló += 1
-    if számláló % 4 == 0:
+    if számláló % 5 == 0:
         bat_index += 1
     if bat_index > len(bat) - 1:
         bat_index = 0
