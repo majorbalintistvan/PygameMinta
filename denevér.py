@@ -14,7 +14,7 @@ time_start = time.time()
 clock = pygame.time.Clock()
 # színek
 piros = (255, 0, 0)
-Háttérkép = pygame.image.load("fák.webp")
+Háttérkép = pygame.image.load("kastély.png")
 Háttér=pygame.transform.scale(Háttérkép,(1600,1080))
 fehér = (255, 255, 255)
 
